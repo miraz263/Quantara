@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-slate-950 text-slate-100 font-sans antialiased;
+  }
+}
+
+/* Custom AG Grid Dark Styling Overrides for Quantara */
+.ag-theme-alpine-dark {
+  --ag-background-color: #0b1b2b;
+  --ag-header-background-color: #102a43;
+  --ag-odd-row-background-color: #0f2337;
+  --ag-border-color: #243b53;
+  --ag-row-border-color: #1b324a;
+  --ag-header-foreground-color: #9fb3c8;
+  --ag-foreground-color: #f0f4f8;
+  --ag-secondary-foreground-color: #829ab1;
+  --ag-selected-row-background-color: #1e3a8a;
+  --ag-font-family: 'Inter', sans-serif;
+  --ag-font-size: 13px;
+}

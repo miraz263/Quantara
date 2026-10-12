@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: infrastructure/docker/Dockerfile.api
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=sqlite:////tmp/quantara.db
+      - SECRET_KEY=quantara_prod_secret_key
+      - STORAGE_DIR=/tmp/quantara_storage
+    volumes:
+      - quantara_data:/tmp/quantara_storage
+
+  web:
+    build:
+      context: .
+      dockerfile: infrastructure/docker/Dockerfile.web
+    ports:
+      - "3000:3000"
+    depends_on:
+      - api
+
+volumes:
+  quantara_data:
